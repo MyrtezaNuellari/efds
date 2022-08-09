@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 [innerHtml] = "title"></h1>
+    <br>
+   <div class="row">
+       <div class="col-md-8"> Filter<input id="txtcars" 
+        [(ngModel)] = "searchCars"
+        (ngModelChange)= "dataChanged($event)"/>
+        Add new car <input class="form-control"       [(ngModel)]= "newCars" />
+       
+      </div>
+    <div class="col-md-4">
+        <button (click)= "addCars()" class="btn btn-primary"> Add Cars.</button>
+    </div>
+    <div *ngIf="cars.length">
+        <h3>Cars</h3>
+        <div>
+            <ol>
+                <li *ngFor="let cars of cars"> {{cars}} </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<pre>
+    {{searchCars| json}}
+</pre> 
